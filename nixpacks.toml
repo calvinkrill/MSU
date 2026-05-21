@@ -1,0 +1,13 @@
+[build]
+nodeVersion = "20"
+
+[phases.setup]
+nixPkgs = ["nodejs_20", "python3", "gcc", "gnumake"]
+
+[phases.install]
+dependsOn = ["setup"]
+cmds = ["npm install"]
+
+[phases.build]
+dependsOn = ["install"]
+cmds = ["npm run build"]
