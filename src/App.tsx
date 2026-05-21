@@ -541,11 +541,11 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [statusIndex, setStatusIndex] = useState(0);
   
   const statuses = [
-    "Connecting to MSU Mainframe...",
-    "Synchronizing Campus Nodes...",
-    "Activating JARVIS Neural Link...",
-    "Optimizing Digital Ecosystem...",
-    "Finalizing Unity Protocol..."
+    "Booting ONE MSU local network...",
+    "Loading campus communities...",
+    "Securing your local account session...",
+    "Preparing student tools and channels...",
+    "Welcome aboard, MSUan..."
   ];
 
   useEffect(() => {
@@ -613,7 +613,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           </h1>
           <div className="h-px w-32 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto mb-4" />
           <p className="text-amber-500/60 text-[10px] sm:text-xs uppercase tracking-[0.45em] sm:tracking-[0.6em] font-medium">
-            Unity in Diversity
+            One network · all campuses · local accounts
           </p>
         </motion.div>
         
@@ -2929,19 +2929,18 @@ export default function App() {
               </div>
               
               <p className="text-gray-400 text-sm mb-8">
-                Enter your registered Gmail address and we'll send you a link to reset your password.
+                Enter your account email and we'll send you a link to reset your password.
               </p>
               
               <form className="space-y-6" onSubmit={handleForgotPassword}>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Gmail Address</label>
+                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Email Address</label>
                   <input 
                     name="email"
                     type="email" 
                     placeholder="juan.delacruz@example.com"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500/50 transition-colors"
                     required
-                    pattern=".+@gmail\.com"
                   />
                 </div>
                 
@@ -3408,137 +3407,78 @@ export default function App() {
         <button onClick={() => setView('home')} className="text-gray-400 hover:text-white transition-colors"><X /></button>
       </nav>
 
-      <main className="max-w-4xl mx-auto p-8 md:p-16">
-        <motion.section 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-metallic-gold text-center">Our Legacy</h2>
-          <p className="text-xl text-gray-400 leading-relaxed mb-6">
-            Mindanao State University was established on September 1, 1961, through Republic Act 1387, as amended. It was the brain-child of the late Senator Domocao A. Alonto, as one of the government’s responses to the so-called “Mindanao Problem.”
+      <main className="max-w-5xl mx-auto p-8 md:p-16">
+        <section className="mb-16 rounded-3xl border border-amber-500/20 bg-gradient-to-br from-amber-500/10 to-transparent p-8 md:p-10">
+          <p className="text-xs uppercase tracking-[0.25em] text-amber-300/80 font-bold mb-4">About ONE MSU</p>
+          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-5">Built by students, for students, across every MSU campus.</h2>
+          <p className="text-gray-300 leading-relaxed max-w-3xl">
+            ONE MSU is a campus-first social platform where MSUans can connect, collaborate, and share real-time updates in one place.
+            From announcements and confessions to messaging and community support, the goal is simple: make student life more connected and more human.
           </p>
-          <p className="text-xl text-gray-400 leading-relaxed">
-            The University's original mission was anchored on instruction, research and extension. Its primary objective was to integrate the Muslims and other cultural minorities into the mainstream of Philippine body politic.
-          </p>
-        </motion.section>
+        </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-8 rounded-3xl bg-white/5 border border-white/10"
-          >
-            <h3 className="text-2xl font-bold mb-4 text-amber-400">Vision</h3>
-            <p className="text-gray-400 leading-relaxed">
-              To be a premier supra-regional university in the ASEAN region, committed to the development of Mindanao, Palawan, and the Sulu Archipelago.
-            </p>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-8 rounded-3xl bg-white/5 border border-white/10"
-          >
-            <h3 className="text-2xl font-bold mb-4 text-amber-400">Mission</h3>
-            <p className="text-gray-400 leading-relaxed">
-              To provide relevant and quality education, research and extension services for the socio-economic and cultural transformation of the communities.
-            </p>
-          </motion.div>
-        </div>
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+          {[
+            { title: 'One Identity', body: 'Use your local ONE MSU account credentials to sign in—no Gmail-only requirement and no third-party login needed.', icon: ShieldCheck },
+            { title: 'One Community', body: 'Explore campus spaces, discover peers, and follow topics that matter to your department and interests.', icon: Users },
+            { title: 'One Momentum', body: 'Stay updated through live channels, student posts, and events shaped by the community itself.', icon: Sparkles }
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl bg-white/5 border border-white/10 p-6">
+              <item.icon className="text-amber-400 mb-4" size={20} />
+              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </section>
 
-        <section className="text-center">
-          <h2 className="text-3xl font-bold mb-12">Join the Community</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button 
-              onClick={() => {
-                if (isLoggedIn) setView('dashboard');
-                else {
-                  setView('home');
-                  setIsSignupOpen(true);
-                }
-              }}
-              className="px-8 py-3 rounded-full bg-amber-500 text-black font-bold hover:bg-amber-400 transition-colors"
-            >
-              Apply Now
-            </button>
-            <a href="https://discord.gg/nRpkj5SuTs" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-colors">Contact Us</a>
+        <section className="mb-16">
+          <h3 className="text-3xl font-black text-metallic-gold mb-8">What you can do here</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              'Join discussions across campuses in a shared social feed.',
+              'Message classmates and friends with real-time chat and voice support.',
+              'Discover opportunities, events, and student-led initiatives.',
+              'Build your profile and showcase your program, year level, and interests.'
+            ].map((point) => (
+              <div key={point} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                <Check size={18} className="text-amber-400 mt-0.5" />
+                <p className="text-gray-300">{point}</p>
+              </div>
+            ))}
           </div>
         </section>
-        <div className="mt-16 p-6 rounded-3xl bg-white/5 border border-white/10">
+
+        <section className="text-center rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10">
+          <h3 className="text-2xl md:text-3xl font-black text-white mb-3">Start with your local account</h3>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-7">
+            Create an account directly on ONE MSU using any valid email and password.
+            Your account is stored locally in the platform, so you can log in without Gmail or any external provider.
+          </p>
+          <button
+            onClick={() => {
+              if (isLoggedIn) setView('dashboard');
+              else {
+                setView('home');
+                setIsSignupOpen(true);
+              }
+            }}
+            className="px-8 py-3 rounded-full bg-amber-500 text-black font-bold hover:bg-amber-400 transition-colors"
+          >
+            Create Local Account
+          </button>
+        </section>
+
+        <div className="mt-12 p-6 rounded-3xl bg-white/5 border border-white/10">
           <h3 className="text-lg font-black text-white mb-2">Disclaimer</h3>
           <p className="text-sm text-gray-400 leading-relaxed">
             ONEMSU is a student-built community project created to help MSUans connect across campuses. It is not an official Mindanao State University System website and is not affiliated with, endorsed by, or operated by the University.
           </p>
         </div>
-
-        <section className="mt-24">
-          <h2 className="text-4xl font-bold mb-12 text-center text-metallic-gold">Meet the Team</h2>
-          
-          <div className="space-y-16">
-            {/* Owners */}
-            <div>
-              <h3 className="text-xl font-bold text-amber-500 mb-8 border-b border-amber-500/20 pb-2">Founders & Owners</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {staff.filter(s => s.category === 'owner' || s.category === 'gf').map(s => (
-                  <div key={s.id}><StaffCard member={s} /></div>
-                ))}
-              </div>
-            </div>
-
-            {/* Admins */}
-            <div>
-              <h3 className="text-xl font-bold text-amber-500 mb-8 border-b border-amber-500/20 pb-2">Head Administrators</h3>
-              <p className="text-sm text-gray-500 mb-6 -mt-6">This 3 help us grow the server and its community</p>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {staff.filter(s => s.category === 'head_admin').map(s => (
-                  <div key={s.id}><StaffCard member={s} /></div>
-                ))}
-              </div>
-            </div>
-
-            {/* Head Moderators */}
-            <div>
-              <h3 className="text-xl font-bold text-amber-500 mb-8 border-b border-amber-500/20 pb-2">Head Moderators</h3>
-              <p className="text-sm text-gray-500 mb-6 -mt-6">This staff / members help us organize and keep the server active which really help our server</p>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {staff.filter(s => s.category === 'head_moderator').map(s => (
-                  <div key={s.id}><StaffCard member={s} /></div>
-                ))}
-              </div>
-            </div>
-
-            {/* Moderators */}
-            <div>
-              <h3 className="text-xl font-bold text-amber-500 mb-8 border-b border-amber-500/20 pb-2">Moderators</h3>
-              <p className="text-sm text-gray-500 mb-6 -mt-6">They also help grow the server and keeps the server fun and active</p>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {staff.filter(s => s.category === 'moderator').map(s => (
-                  <div key={s.id}><StaffCard member={s} /></div>
-                ))}
-              </div>
-            </div>
-
-            {/* OGs */}
-            <div>
-              <h3 className="text-xl font-bold text-amber-500 mb-8 border-b border-amber-500/20 pb-2">The OGs (Originals)</h3>
-              <p className="text-sm text-gray-500 mb-6 -mt-6">Now this are the OG who are really was there since the 1st week of the discord server and they became part of the family and the most important piece in the server</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {staff.filter(s => s.category === 'og').map(s => (
-                  <div key={s.id}><StaffCard member={s} /></div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="p-12 border-t border-white/5 text-center text-gray-600 text-sm">
         <p>© 2026 ONEMSU. All rights reserved.</p>
         <div className="flex justify-center gap-6 mt-4">
-          <a href="https://discord.gg/nRpkj5SuTs" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">Contact Us</a>
           <button onClick={() => setView('privacy')} className="hover:text-amber-500 transition-colors">Privacy Policy</button>
           <button onClick={() => setView('terms')} className="hover:text-amber-500 transition-colors">Terms of Service</button>
         </div>
