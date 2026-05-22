@@ -2,6 +2,49 @@
 
 ONEMSU is a full-stack campus platform for Mindanao State University students. It combines social features (newsfeed, messaging, confessions, lost & found, feedback), scheduling tools, and an integrated JARVIS AI assistant in a single app.
 
+## What ONEMSU Is (Plain-English Overview)
+
+ONEMSU is designed as a **student super-app** for one university community. Instead of splitting student life across many disconnected tools, it puts day-to-day campus needs into one place:
+
+- A social space (newsfeed, reels, profile, timeline)
+- A communication layer (messenger + live presence)
+- Student utility spaces (lost & found, feedbacks, confessions)
+- A productivity area (scheduler/dashboard)
+- An AI helper (JARVIS) that can answer questions or assist with content
+
+Think of it as a campus-focused mix of:
+
+- social network +
+- messaging app +
+- student services portal +
+- lightweight academic organizer.
+
+The primary audience is **Mindanao State University students**, but the architecture is generic enough that a similar setup could be adapted for other campuses.
+
+## How the App Works End-to-End
+
+At runtime, ONEMSU behaves like one integrated application even though it has multiple parts:
+
+1. **Browser client (React SPA)** renders all pages and interactions.
+2. **Express server** serves APIs and handles backend logic.
+3. **WebSocket server** pushes real-time updates (e.g., chat/presence-style events).
+4. **SQLite database** stores structured app data locally on the server.
+5. **Gemini integration (optional)** powers JARVIS AI features when API keys are configured.
+
+Because Vite middleware is mounted in development, frontend and backend can be run together from the same command (`npm run dev`).
+
+## Core Student Use Cases
+
+Typical workflows this app appears to support:
+
+- **Stay updated** through feed-like and media-centric surfaces (`/newsfeed`, `/reels`, `/timeline`).
+- **Connect with peers** through direct communication (`/messenger`) and live-style spaces (`/live`).
+- **Report/share campus concerns** in dedicated channels (`/feedbacks`, `/confession`, `/lostfound`).
+- **Track personal tasks/schedules** in planner-oriented routes (`/scheduler`, `/dashboard`).
+- **Ask JARVIS for help** when AI keys are present (Q&A, assistance-style interactions).
+
+In short: the app aims to reduce friction in student life by combining social interaction, coordination, and basic campus service workflows.
+
 ## What’s Included
 
 - **Frontend**: React + TypeScript + Vite single-page app.
